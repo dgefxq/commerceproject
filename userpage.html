@@ -1,0 +1,505 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <title>User Info</title>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Mobirise v4.9.6, mobirise.com">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+  <link rel="shortcut icon" href="assets/images/logo2.png" type="image/x-icon">
+  <meta name="description" content="Site Maker description">
+
+  <link rel="stylesheet" href="assets/tether/tether.min.css">
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-grid.min.css">
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-reboot.min.css">
+  <link rel="stylesheet" href="assets/theme/css/style.css">
+  <link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">
+
+  <th:block th:include="/headermenu"></th:block>
+
+  <style>
+    .tablinks {
+      background-color: rgba(4, 168, 141, 0.5);
+      color: white;
+      float: left;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      padding: 15px 15px;
+      font-size: 17px;
+      width: 25%;
+    }
+  </style>
+
+
+
+  <script>
+    window.onload = function () {
+      function1();
+      function2();
+      function3();
+      function4();
+    }
+
+    function function1() {
+      var chart = new CanvasJS.Chart("chartContainer1", {
+        theme: "dark2",
+        animationEnabled: true,
+        animationDuration: 2000,
+        backgroundColor: "transparent",
+        subtitles: [
+          {
+            text: "    " + [[${ goalpercent1 }]] + "%    $" + [[${ currentgraph1 }]] + "/$" + [[${ totalgraph1 }]] + "    " + "[[${goalstatus1}]]",
+            verticalAlign: "center",
+            maxWidth: 150,
+            fontSize: 17,
+          },
+          {
+            text: "[[${createdate1}]] " + " - " + " [[${duedate1}]]",
+            verticalAlign: "bottom",
+            fontSize: 15,
+          },
+        ],
+        legend: {
+          cursor: "pointer",
+          itemclick: explodePie
+        },
+        data: [{
+          type: "doughnut",
+          innerRadius: 105,
+          toolTipContent: "<b>{name}</b>: ${y} (#percent%)",
+          dataPoints: [
+            { y: [[${ currentgraph1 }]], name: "Goal Processing", color: "#1DE8E5", indexLabel: "{name}:  ${y} (#percent%)" },
+            { y: [[${ goalgograph1 }]], name: "Remaining Amount to Achieve Goal", color: "#FFFFFF30", indexLabel: "{name}:  ${y} (#percent%)" },
+          ]
+        }]
+      });
+      chart.render();
+    }
+    function function2() {
+      var chart = new CanvasJS.Chart("chartContainer2", {
+        theme: "dark2",
+        animationEnabled: true,
+        animationDuration: 2000,
+        backgroundColor: "transparent",
+        subtitles: [
+          {
+            text: "    " + [[${ goalpercent2 }]] + "%    $" + [[${ currentgraph2 }]] + "/$" + [[${ totalgraph2 }]] + "   " + "[[${goalstatus2}]]",
+            verticalAlign: "center",
+            maxWidth: 150,
+            fontSize: 17,
+          },
+          {
+            text: "[[${createdate2}]] " + " - " + " [[${duedate2}]]",
+            verticalAlign: "bottom",
+            fontSize: 15,
+          },
+        ],
+        legend: {
+          cursor: "pointer",
+          itemclick: explodePie
+        },
+        data: [{
+          type: "doughnut",
+          innerRadius: 105,
+          toolTipContent: "<b>{name}</b>: ${y} (#percent%)",
+          dataPoints: [
+            { y: [[${ currentgraph2 }]], name: "Goal Processing", color: "#1DE8E5", indexLabel: "{name}:  ${y} (#percent%)" },
+            { y: [[${ goalgograph2 }]], name: "Remaining Amount to Achieve Goal", color: "#FFFFFF30", indexLabel: "{name}:  ${y} (#percent%)" },
+          ]
+        }]
+      });
+      chart.render();
+    }
+
+    function function3() {
+      var chart = new CanvasJS.Chart("chartContainer3", {
+        theme: "dark2",
+        animationEnabled: true,
+        animationDuration: 2000,
+        backgroundColor: "transparent",
+        subtitles: [
+          {
+            text: "    " + [[${ goalpercentCGT1 }]] + "%    $" + [[${ currentgraphCGT1 }]] + "/$" + [[${ totalgraphCGT1 }]] + "    " + "[[${goalstatusCGT1}]]",
+            verticalAlign: "center",
+            maxWidth: 150,
+            fontSize: 17,
+          },
+          {
+            text: "[[${createdateCGT1}]] " + " - " + " [[${duedateCGT1}]]",
+            verticalAlign: "bottom",
+            fontSize: 15,
+          },
+        ],
+        legend: {
+          cursor: "pointer",
+          itemclick: explodePie
+        },
+        data: [{
+          type: "doughnut",
+          innerRadius: 105,
+          toolTipContent: "<b>{name}</b>: ${y} (#percent%)",
+          dataPoints: [
+            { y: [[${ currentgraphCGT1 }]], name: "Goal Processing", color: "#1DE8E5", indexLabel: "{name}:  ${y} (#percent%)" },
+            { y: [[${ goalgographCGT1 }]], name: "Remaining Amount to Achieve Goal", color: "#FFFFFF30", indexLabel: "{name}:  ${y} (#percent%)" },
+          ]
+        }]
+      });
+      chart.render();
+    }
+    function function4() {
+      var chart = new CanvasJS.Chart("chartContainer4", {
+        theme: "dark2",
+        animationEnabled: true,
+        animationDuration: 2000,
+        backgroundColor: "transparent",
+        subtitles: [
+          {
+            text: "    " + [[${ goalpercentCGT2 }]] + "%    $" + [[${ currentgraphCGT2 }]] + "/$" + [[${ totalgraphCGT2 }]] + "    " + "[[${goalstatusCGT2}]]",
+            verticalAlign: "center",
+            maxWidth: 150,
+            fontSize: 17,
+          },
+          {
+            text: "[[${createdateCGT2}]] " + " - " + " [[${duedateCGT2}]]",
+            verticalAlign: "bottom",
+            fontSize: 15,
+          },
+        ],
+        legend: {
+          cursor: "pointer",
+          itemclick: explodePie
+        },
+        data: [{
+          type: "doughnut",
+          innerRadius: 105,
+          toolTipContent: "<b>{name}</b>: ${y} (#percent%)",
+          dataPoints: [
+            { y: [[${ currentgraphCGT2 }]], name: "Goal Processing", color: "#1DE8E5", indexLabel: "{name}:  ${y} (#percent%)" },
+            { y: [[${ goalgographCGT2 }]], name: "Remaining Amount to Achieve Goal", color: "#FFFFFF30", indexLabel: "{name}:  ${y} (#percent%)" },
+          ]
+        }]
+      });
+      chart.render();
+    }
+
+    function explodePie(e) {
+      if (typeof (e.dataSeries.dataPoints[e.dataPointIndex].exploded) === "undefined" || !e.dataSeries.dataPoints[e.dataPointIndex].exploded) {
+        e.dataSeries.dataPoints[e.dataPointIndex].exploded = true;
+      } else {
+        e.dataSeries.dataPoints[e.dataPointIndex].exploded = false;
+      }
+      e.chart.render();
+    }
+
+  </script>
+
+  <style>
+    body {
+      font-family: Tw Cen MT;
+    }
+
+    /* Style the tab */
+    .tab {
+      overflow: hidden;
+      border: 1px solid #ccc;
+      background-color: #f1f1f1;
+    }
+
+    /* Style the buttons inside the tab */
+    .tab button {
+      background-color: inherit;
+      float: left;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      padding: 14px 16px;
+      transition: 0.3s;
+      font-size: 17px;
+    }
+
+    /* Change background color of buttons on hover */
+    .tab button:hover {
+      background-color: #ddd;
+    }
+
+    /* Create an active/current tablink class */
+    .tab button.active {
+      background-color: #ccc;
+    }
+
+    /* Style the tab content */
+    .tabcontent {
+      display: none;
+      padding: 6px 12px;
+      -webkit-animation: fadeEffect 1s;
+      animation: fadeEffect 1s;
+    }
+
+    /* Fade in tabs */
+    @-webkit-keyframes fadeEffect {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes fadeEffect {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+  </style>
+
+
+
+  <style>
+    .collapsible {
+      background-color: transparent;
+      color: white;
+      width: 10%;
+      text-align: right;
+      font-size: 20px;
+    }
+
+    .active,
+    .collapsible:hover {
+      background-color: #2017ED30;
+    }
+
+    .collapsible:after {
+      content: '\002B';
+      color: white;
+      font-weight: bold;
+      float: right;
+      margin-left: 5px;
+    }
+
+    .active:after {
+      content: "\2212";
+    }
+
+    .content {
+      padding: 0 18px;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.2s ease-out;
+      background-color: transparent;
+    }
+
+    .rowgraph {
+      float: right;
+    }
+
+    .rowbt {
+      display: flex;
+    }
+  </style>
+</head>
+
+
+
+<body>
+  <section class="header1 cid-rkUkGcPa02 mbr-fullscreen mbr-parallax-background" id="header1-4">
+    <div class="mbr-overlay" style="opacity: 0.2; background-color: rgb(15, 118, 153);"></div>
+
+
+    <div class="container">
+      <div class="row justify-content-md-center">
+        <div class="htmlNoPages mbr-white col-md-12">
+
+          <div style="text-align:right;">
+            <h3 style="text-align:right; font-size: 30px; font-family: Tw Cen MT;">Welcome <span th:utext="${#request.userPrincipal.name}"></span></h3>
+
+                <form th:action="@{/logout}" method="post">
+                  <input type="submit" value="Logout" class="btn btn-primary btn-form display-4"/>
+              </form>
+                </div>
+
+               
+
+                <p th:text="${notenewgoal}" />
+
+
+                <p th:text="'Bank This Month Goal Reward: $' + ${goalrewardamount}" /> 
+
+
+
+                <div class="row">
+                <form action="#" th:action="@{/savereward}" th:object="${transactiondata}" method="post" >
+	     
+                  <td ><input type="submit" value="Check Reward Status / Accept Reward"  class="btn btn-primary btn-form display-4"/></td>
+                  
+
+                 </form>
+               
+                 
+              
+
+                 <form action="creategoalpage">
+                    <input type="submit" value="CREATE NEW GOAL" class="btn btn-primary btn-form display-4" />
+                </form>
+  
+                </div>
+                
+                <p th:text="${note}" />                
+
+          
+                  <button class="tablinks" onclick="openCity(event, 'all')" id="defaultOpen" >All Goals ([[${countall}]])   </button>
+                  <button class="tablinks" onclick="openCity(event, 'current')">Current Goals ([[${countcurrent}]])   </button>
+                  <button class="tablinks" onclick="openCity(event, 'achieved')">Achieved Goals ([[${countachieved}]])   </button>
+                  <button class="tablinks" onclick="openCity(event, 'missed')">Missed Goals ([[${countmissed}]])   </button>
+            
+                 
+                <div  id="all" class="tabcontent">
+
+             <!--  graph for main page -->
+             
+                <script src="canvasjs.min.js"></script>
+                <div class="rowgraph" id="chartContainer1" style="width: 55%; height: 400px;display: inline-block; "></div>          
+                      <div  style="text-align:left; font-size: 30px; font-family: Agency FB;">
+                      <p th:text="'Title: ' + ${goaltitle1}" /> 
+                      <p th:text="'Account Type: ' + ${accountype1}" /> 
+                      <p th:text="'Goal Type: ' + ${goaltype1}" /> 
+                      <p th:text="'Goal Amount: ' + ${goalamount1}" /> 
+                      <p th:text="'Date: ' + ${createdate1} + ' - ' + ${duedate1}"/> 
+                      <p th:text="'Goal Status: ' + ${goalstatus1}"/> 
+                      <p th:text="'Note: ' + ${goalnote1}" /> 
+                      </div>
+
+                <button class="collapsible btn btn-primary btn-form display-4" >Detail</button>
+                <div class="content">
+                    <table border="2" width="70%" cellpadding="2">
+                        <tr><th>ID</th><th>Account Type</th><th>Processing Date</th><th>Amount</th><th>Deposit (CR) / Withdrawal (DR)</th><th>Description</th>                        
+                        <tr th:each="detailtransaction : ${detailtransaction}">       
+                          <td th:text="${detailtransaction.id}"></td> 
+                          <td th:text="${detailtransaction.accounttype}"></td> 
+                          <td th:text="${detailtransaction.processingdate}"></td>  
+                          <td th:text="'$'+${detailtransaction.amount}"></td>  
+                          <td th:text="${detailtransaction.crdr}"></td> 
+                          <td th:text="${detailtransaction.description}"></td>                
+                        </tr>  
+                      </table>  
+                </div>
+                <hr style="height:1px;background-color:rgb(255, 255, 255);" >
+
+                <script src="canvasjs.min.js"></script>
+                <div class="rowgraph" id="chartContainer2" style="width: 55%; height: 400px;display: inline-block; "></div>
+                 
+               
+           
+                      <div  style="text-align:left; font-size: 30px; font-family: Agency FB;">
+                      <p th:text="'Title: ' + ${goaltitle2}" /> 
+                      <p th:text="'Account Type: ' + ${accountype2}" /> 
+                      <p th:text="'Goal Type: ' + ${goaltype2}" /> 
+                      <p th:text="'Goal Amount: ' + ${goalamount2}" /> 
+                      <p th:text="'Date: ' + ${createdate2} + ' - ' + ${duedate2}"/> 
+                      <p th:text="'Goal Status: ' + ${goalstatus2}"/> 
+                      <p th:text="'Note: ' + ${goalnote2}" /> 
+                      </div>
+
+                <button class="collapsible btn btn-primary btn-form display-4" >Detail</button>
+                <hr style="height:1px;background-color:rgb(255, 255, 255);" >                
+                </div>
+                
+                <div id="current" class="tabcontent">  
+                  
+                  <!-- START OF DANIELS CHANGES -->
+                    <div class="rowgraph" id="chartContainer3" style="width: 55%; height: 400px;display: inline-block; "></div>
+                 
+               
+           
+                    <div  style="text-align:left; font-size: 30px; font-family: Agency FB;">
+                    <p th:text="'Title: ' + ${goaltitleCGT1}" /> 
+                    <p th:text="'Account Type: ' + ${accountypeCGT1}" /> 
+                    <p th:text="'Goal Type: ' + ${goaltypeCGT1}" /> 
+                    <p th:text="'Goal Amount: ' + ${goalamountCGT1}" /> 
+                    <p th:text="'Date: ' + ${createdateCGT1} + ' - ' + ${duedateCGT1}"/> 
+                    <p th:text="'Goal Status: ' + ${goalstatusCGT1}"/> 
+                    <p th:text="'Note: ' + ${goalnoteCGT1}" /> 
+                    </div>
+
+              <button class="collapsible btn btn-primary btn-form display-4" >Detail</button>
+              <hr style="height:1px;background-color:rgb(255, 255, 255);" >      
+              
+              <div class="rowgraph" id="chartContainer4" style="width: 55%; height: 400px;display: inline-block; "></div>           
+              <div  style="text-align:left; font-size: 30px; font-family: Agency FB;">
+              <p th:text="'Title: ' + ${goaltitleCGT2}" /> 
+              <p th:text="'Account Type: ' + ${accountypeCGT2}" /> 
+              <p th:text="'Goal Type: ' + ${goaltypeCGT2}" /> 
+              <p th:text="'Goal Amount: ' + ${goalamountCGT2}" /> 
+              <p th:text="'Date: ' + ${createdateCGT2} + ' - ' + ${duedateCGT2}"/> 
+              <p th:text="'Goal Status: ' + ${goalstatusCGT2}"/> 
+              <p th:text="'Note: ' + ${goalnoteCGT2}" /> 
+              </div>
+              
+              <!-- END OF DANIELS CHANGES! -->
+
+
+              </div>
+                
+                <div id="achieved" class="tabcontent">                
+                  <p>Content of achieved goal
+                  </p>
+                </div>
+
+                <div id="missed" class="tabcontent">                 
+                    <p>Content of missed goal
+                    </p>
+                  </div>
+                
+                <script>
+                  function openCity(evt, cityName) {
+                    var i, tabcontent, tablinks;
+                    tabcontent = document.getElementsByClassName("tabcontent");
+                    for (i = 0; i < tabcontent.length; i++) {
+                      tabcontent[i].style.display = "none";
+                    }
+                    tablinks = document.getElementsByClassName("tablinks");
+                    for (i = 0; i < tablinks.length; i++) {
+                      tablinks[i].className = tablinks[i].className.replace(" active", "");
+                    }
+                    document.getElementById(cityName).style.display = "block";
+                    evt.currentTarget.className += " active";
+                  }
+
+                  document.getElementById("defaultOpen").click();
+                </script>
+                     <script>
+                      var coll = document.getElementsByClassName("collapsible");
+                      var i;
+
+                      for (i = 0; i < coll.length; i++) {
+                        coll[i].addEventListener("click", function () {
+                          this.classList.toggle("active");
+                          var content = this.nextElementSibling;
+                          if (content.style.maxHeight) {
+                            content.style.maxHeight = null;
+                          } else {
+                            content.style.maxHeight = content.scrollHeight + "px";
+                          }
+                        });
+                      }
+                    </script>
+
+                  <div class="htmlNoPages mbr-white col-md-12">          
+<p th:text="${#dates.createNow()}"></p>
+
+            </div>
+        </div>
+    </div>
+
+
+</section>
+</body>
+</html>

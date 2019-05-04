@@ -1,0 +1,252 @@
+<!DOCTYPE HTML>
+<html>
+<head> 
+    <title>User Info</title>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="generator" content="Mobirise v4.9.6, mobirise.com">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+    <link rel="shortcut icon" href="assets/images/logo2.png" type="image/x-icon">
+    <meta name="description" content="Site Maker description">
+    
+    <link rel="stylesheet" href="assets/tether/tether.min.css">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-reboot.min.css">
+    <link rel="stylesheet" href="assets/theme/css/style.css">
+    <link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">
+
+    <th:block th:include="/headermenu"></th:block>
+
+</head>
+<body>
+   
+    <section class="header1 cid-rkUkGcPa02 mbr-fullscreen mbr-parallax-background" id="header1-4">
+            <div class="mbr-overlay" style="opacity: 0.2; background-color: rgb(15, 118, 153);"></div>
+        
+
+<div class="container">
+        <div class="row justify-content-md-center">
+            <div class="htmlNoPages mbr-white col-md-10">
+                 <h2>User Goal Information</h2>
+
+
+
+                 <form action="#" th:action="@{/savereward}" th:object="${transactiondata}" method="post" >
+	     
+                  <td ><input type="submit" value="Accept Reward" /></td>
+                  
+
+                 </form>
+                 <p th:text="${note}" />
+
+
+
+
+
+                 <form th:action="@{/logout}" method="post">
+                  <input type="submit" value="Logout"/>
+              </form>
+
+              <form action="showtransactionpage">
+                  <input type="submit" value="SHOW TRANSACTION" class="btn btn-primary btn-form display-4" />
+              </form>
+
+              <form action="addtransactionpage">
+                  <input type="submit" value="ADD TRANSACTION" class="btn btn-primary btn-form display-4" />
+              </form>
+
+              <form action="showgoalpage">
+                  <input type="submit" value="SHOW GOAL PAGE" class="btn btn-primary btn-form display-4" />
+              </form>
+
+              
+              <form action="creategoalpage">
+                  <input type="submit" value="CREATE GOAL" class="btn btn-primary btn-form display-4" />
+              </form>
+
+         <!----   <p th:each="goalamount : ${goalamount}"  th:text="${goalamount}"></p>  -->
+             <p th:text="'Goal Amount: ' + ${goalamount}" /> 
+             <p th:text="'Goal Final: ' + ${goalfinal}" />
+             <p th:text="'Goal to Go: ' + ${goalgo}" />
+             <p th:text="'Goal Balance Final List: ' + ${finalbalance}" />
+
+             <p th:text="'Due Date List: ' + ${findduedate}" />
+
+             <p th:text="'Goal Status List: ' + ${findgoalstatus}" />
+
+
+             <p th:text="'Goal Deposit Transaction List: ' + ${goaldeposit}" />
+             <p th:text="'Goal Withdrawal Transaction List: ' + ${goalwithdrawal}" />
+             <p th:text="'Goal Balance Transaction List: ' + ${goalbalance}" />
+             
+              <p th:text="'Find Goal Type: ' + ${findgoaltype}" />
+              <p th:text="'Find Goal Account Type: ' + ${findaccounttype}" />
+
+
+
+
+
+              <table border="2" width="70%" cellpadding="2">
+                <tr><th>ID</th><th>Account Type</th><th>Processing Date</th><th>Amount</th><th>CRDR</th><th>Description</th>
+                
+                <tr th:each="detailtransaction : ${detailtransaction}"> 
+
+
+                  <td th:text="${detailtransaction.id}"></td> 
+                   <td th:text="${detailtransaction.accounttype}"></td> 
+                   <td th:text="${detailtransaction.processingdate}"></td>  
+                   <td th:text="'$'+${detailtransaction.amount}"></td>  
+                   <td th:text="${detailtransaction.crdr}"></td> 
+                   <td th:text="${detailtransaction.description}"></td> 
+
+                
+                   
+                   </tr>  
+                   </table>  
+           
+        
+
+
+                <p th:text="'amount: ' + ${ee}" />
+
+
+          <p th:each="bb : ${bb}"  th:text="${bb}"></p>
+     
+<!---
+        <script src="https://code.highcharts.com/highcharts.js"></script>
+        <script src="https://code.highcharts.com/highcharts-3d.js"></script>
+        <script src="https://code.highcharts.com/modules/exporting.js"></script>
+
+-->
+<script src="graph/chart1.js"></script>
+        <script src="graph/chart2.js"></script>
+        <script src="graph/chart3.js"></script>
+        
+        <div id="container" style="height: 400px"></div>
+        <script th:inline="javascript">
+          Highcharts.chart('container', {
+            chart : {
+              type : 'pie',
+              options3d : {
+                enabled : true,
+                alpha : 50,
+                beta : 0
+              }
+            },
+            title : {
+              text : 'Result Status'
+            },
+            tooltip : {
+              pointFormat : '{series.name}: <b>{point.percentage:.1f}%</b>'
+            },
+            plotOptions : {
+              pie : {
+                allowPointSelect : true,
+                cursor : 'pointer',
+                depth : 35,
+                dataLabels : {
+                  enabled : true,
+                  format : '{point.name}'
+                }
+              }
+            },
+            series : [ {
+              type : 'pie',
+              name : 'Ratio',
+              data : [ [ 'Success', [[${pass}]] ], [ 'Failure', [[${fail}]] ]  ]
+            } ]
+          });
+        </script>
+        
+
+
+
+        <div class="containers">
+          <h2 align="center">Demo Line Graph</h2>
+      
+          <div id="containers"
+            style="width: 550px; height: 400px; margin: 0 auto"></div>
+        </div>
+
+        <!---
+        <script
+          src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+   
+        <script
+          src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="https://code.highcharts.com/highcharts.js"></script>
+        <script src="https://code.highcharts.com/modules/exporting.js"></script>
+
+        -->
+
+        <script src="graph/chart4.js"></script>
+        <script src="graph/chart5.js"></script>
+        <script src="graph/chart6.js"></script>
+        <script src="graph/chart7.js"></script>
+
+
+        <script th:inline="javascript">
+          $(function(){
+          Highcharts.chart('containers', {
+              chart: {
+                  type: 'column'
+              },
+              title: {
+                  text: 'Demo graph'
+              },
+              subtitle: {
+                  text: 'Detail'
+              },
+              xAxis: {
+                  categories: [[${surveyMap.keySet()}]],
+                  crosshair: true
+              },
+              yAxis: {
+                  min: 0,
+                  max:100,
+                  title: {
+                      text: 'Max100'
+                  }
+              },
+              tooltip: {
+                  headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+                  pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                  '<td style="padding:0"><b>{point.y:.1f} K</b></td></tr>',
+                  footerFormat: '</table>',
+                  shared: true,
+                  useHTML: true
+              },
+              plotOptions: {
+                  column: {
+                      pointPadding: 0.2,
+                      borderWidth: 0
+                  }
+              },
+              series: [{
+                  name: 'Goal',
+                  data: [[${surveyMap.values()}]]
+              }]
+          });
+          });
+      </script>
+      
+
+
+     
+<p th:text="${#dates.createNow()}"></p>
+<p th:text="${#dates.format(#dates.createNow(), 'yyyy-MM-dd')}"></p>
+
+
+            </div>
+        </div>
+    </div>
+
+
+</section>
+    
+   
+
+</body>
+</html>

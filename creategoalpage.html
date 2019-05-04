@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head>
+		<title>Create Goal</title>
+		<head>
+
+  <link rel="stylesheet" href="assets/tether/tether.min.css">
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-grid.min.css">
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-reboot.min.css">
+  <link rel="stylesheet" href="assets/theme/css/style.css">
+  <link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">
+  
+  <style type="text/css">
+    html, body {
+      width: 100%;
+      height: 100%;
+      margin: 0px;
+    }
+
+    
+    @keyframes gwd-gen-1we0gwdanimation_gwd-keyframes {
+        0% {
+            opacity: 0;
+        transform: translate3d(-100px, 0px, 0px);
+        animation-timing-function: linear;
+      }
+    
+    }
+    .htmlNoPages .gwd-gen-1we0gwdanimation {
+      animation: gwd-gen-1we0gwdanimation_gwd-keyframes 1s linear 0s 1 normal forwards running;
+	}
+
+	input[type=text], select {
+  width: 100%;
+  padding: 5px;
+  margin: 5px 0;
+  border-radius: 7px;
+
+}
+input[type=date], select {
+  width: 100%;
+  padding: 5px;
+  margin: 5px 0;
+  border-radius: 7px;
+
+}
+
+
+
+
+
+
+  </style>
+
+<th:block th:include="/headermenu"></th:block>
+  
+    </head>
+	<body>
+
+			<section class="header1 cid-rkUkGcPa02 mbr-fullscreen mbr-parallax-background" id="header1-4">
+
+    
+
+					<div class="mbr-overlay" style="opacity: 0.2; background-color: rgb(15, 118, 153);">
+					</div>
+				
+					<div class="container">
+						<div class="row justify-content-md-center">
+								<div class="media-container-column col-lg-8" data-form-type="formoid">
+							<div class="htmlNoPages mbr-white col-md-9">
+								
+		
+		<div>
+			<h3 class="gwd-gen-1we0gwdanimation mbr-section-title align-center mbr-bold pb-3 mbr-fonts-style display-2">Create New Goal</h3>
+	     <form action="#" th:action="@{/savegoal}" th:object="${goaldata}" method="post">
+	     
+	     <table>
+				
+		<tr>
+				<td>Goal ID: </td>
+				<td><input type="text" th:field="*{id}" /></td>			
+		</tr>
+			
+	    <tr>
+				<td>Goal Title: </td>
+                <td><input type="text" th:field="*{title}" required="required" placeholder="*Required Field" /></td>	
+		</tr>
+		<tr>
+			<td>Account Type: </td>
+			<td><select th:field="*{accounttype}">
+					<option th:each="typeshort : ${typeshort}" th:value="${typeshort}" th:text="${typeshort}" required="required"></option>
+				 </select></td>						
+	</tr>
+        <tr>
+				<td>Goal Type: </td>
+				<td><select th:field="*{goaltype}">
+						<option th:each="goaltypeshort : ${goaltypeshort}" th:value="${goaltypeshort}" th:text="${goaltypeshort}" required="required" placeholder="*Required Field"></option>
+					 </select></td>						
+		</tr>
+        <tr>
+                <td>Goal Amount: </td>
+                <td><input type="text" th:field="*{goalamount}" required="required" placeholder="*Required Field"/></td>					
+		</tr>
+		<tr>
+				<td width="10%">Due Date: </td>
+				<td width="90%" align="left">
+				<input type="date" th:attr="min=${today}" th:field="*{duedate}" required="required" placeholder="*Required Field"/>					
+		</tr>
+		<tr>
+				<td>Note/Description: </td>
+				<td><input type="text" th:field="*{goalnote}" required="required" placeholder="*Required Field" /></td>						
+		</tr>
+
+		
+	</table>
+		<div class="gwd-gen-1we0gwdanimation col-md-12 input-group-btn align-left"><button type="submit" value="Add" class="btn btn-primary btn-form display-4">Create</button> 
+	
+		
+			 </form>
+			 	
+		 </div>
+		</div>
+	</div>
+</div>
+
+</section>
+	</body>
+</html>

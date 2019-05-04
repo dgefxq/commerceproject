@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head>
+		<title>Add Transaction Demo</title>
+		
+		
+		<link rel="stylesheet" href="assets/tether/tether.min.css">
+		<link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+		<link rel="stylesheet" href="assets/bootstrap/css/bootstrap-grid.min.css">
+		<link rel="stylesheet" href="assets/bootstrap/css/bootstrap-reboot.min.css">
+		<link rel="stylesheet" href="assets/theme/css/style.css">
+		<link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">
+		
+		<style type="text/css">
+		  html, body {
+			width: 100%;
+			height: 100%;
+			margin: 0px;
+		  }
+	  
+		  
+		  @keyframes gwd-gen-1we0gwdanimation_gwd-keyframes {
+			  0% {
+				  opacity: 0;
+			  transform: translate3d(-100px, 0px, 0px);
+			  animation-timing-function: linear;
+			}
+		  
+		  }
+		  .htmlNoPages .gwd-gen-1we0gwdanimation {
+			animation: gwd-gen-1we0gwdanimation_gwd-keyframes 1s linear 0s 1 normal forwards running;
+		  }
+	  
+		  input[type=text], select {
+		width: 100%;
+		padding: 5px;
+		margin: 5px 0;
+		border-radius: 7px;
+	  
+	  }
+	  input[type=date], select {
+		width: 100%;
+		padding: 5px;
+		margin: 5px 0;
+		border-radius: 7px;
+	  
+	  }
+	  
+	  
+	  
+	  
+	  
+	  
+		</style>
+	  
+	  <th:block th:include="/headermenu"></th:block>
+
+    </head>
+	<body>
+		
+		<div>
+	 
+
+	 <section class="header1 cid-rkUkGcPa02 mbr-fullscreen mbr-parallax-background" id="header1-4">
+
+    
+
+			<div class="mbr-overlay" style="opacity: 0.2; background-color: rgb(15, 118, 153);">
+			</div>
+		
+			<div class="container">
+				<div class="row justify-content-md-center">
+						<div class="media-container-column col-lg-8" data-form-type="formoid">
+					<div class="htmlNoPages mbr-white col-md-9">
+						
+
+<div>
+	<h3 class="gwd-gen-1we0gwdanimation mbr-section-title align-center mbr-bold pb-3 mbr-fonts-style display-2">Add Transaction *Admin Tool</h3>
+
+
+
+	     <form action="#" th:action="@{/savetransaction}" th:object="${transactiondata}" method="post">
+	     
+	     <table>
+
+		<tr>
+				<td>ID: </td>
+				<td><input type="text" th:field="*{id}" /></td>			
+		</tr>
+	  
+				<td>Account Type: </td>
+				<td>
+					<select th:field="*{accounttype}">
+						<option th:each="typeshort : ${typeshort}" th:value="${typeshort}" th:text="${typeshort}"></option>
+					 </select>
+				</td>						
+		</tr>
+		<tr>
+				<td>Amount: </td>
+				<td><input type="text" th:field="*{amount}" required="required" placeholder="*Required Field" /></td>						
+		</tr>
+
+		<tr>
+				<td>CR-Deposit / DR-Withdrawal: </td>
+				<td><select th:field="*{crdr}">
+						<option th:each="crdrshort : ${crdrshort}" th:value="${crdrshort}" th:text="${crdrshort}"></option>
+					 </select></td>						
+		</tr>
+		<tr>
+				<td>Description: </td>
+				<td><input type="text" th:field="*{description}" /></td>						
+		</tr>
+		<tr>
+				<td>Userid: </td>
+				<td><input type="text" th:field="*{userid}" /></td>						
+		</tr>
+
+
+
+
+		</table>
+		
+		<tr>
+				<div class="gwd-gen-1we0gwdanimation col-md-12 input-group-btn align-left"><button type="submit" value="Add" class="btn btn-primary btn-form display-4">Add New Transaction</button> 
+	
+	    </tr> 
+	
+		<p th:text="${note}" />	
+	     </form>
+	     </div>
+	</body>
+</html>

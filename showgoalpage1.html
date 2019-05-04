@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <title>Goal Summary</title>
+
+</head>
+
+
+<body>
+  <h1 align="center">Goal Summary</h1>
+
+
+  <script src="graph/chart1.js"></script>
+  <script src="graph/chart2.js"></script>
+  <script src="graph/chart3.js"></script>
+
+  <div id="container" style="height: 400px"></div>
+  <script th:inline="javascript">
+    Highcharts.chart('container', {
+      chart: {
+        type: 'pie',
+        options3d: {
+          enabled: true,
+          alpha: 50,
+          beta: 0
+        }
+      },
+      title: {
+        text: 'Result Status'
+      },
+      tooltip: {
+        pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+      },
+      plotOptions: {
+        pie: {
+          allowPointSelect: true,
+          cursor: 'pointer',
+          depth: 35,
+          dataLabels: {
+            enabled: true,
+            format: '{point.name}'
+          }
+        }
+      },
+      series: [{
+        type: 'pie',
+        name: 'Ratio',
+        data: [['Success', [[${ pass }]]], ['Failure', [[${ fail }]]]]
+      }]
+    });
+  </script>
+
+
+
+
+  <div class="containers">
+    <h2 align="center">Demo Line Graph</h2>
+
+    <div id="containers" style="width: 550px; height: 400px; margin: 0 auto"></div>
+  </div>
+
+
+
+  <table id="t03" cellpadding="2">
+    <tr>
+      <th>
+        <a href="/creategoalpage">
+          <h2>Add New Goal</h2>
+        </a>
+      </th>
+    </tr>
+  </table>
+  <table>
+
+
+  </table>
+
+  <form:form>
+    <table id="t04" border="2" width="100%" cellpadding="2">
+      <tr>
+        <th>Goal Id</th>
+        <th>Title</th>
+        <th>Account Type</th>
+        <th>Goal Type</th>
+        <th>Goal Amount</th>
+        <th>Created Date</th>
+        <th>Due Date</th>
+        <th>Goal Status</th>
+        <th>Goal Reward</th>
+        <th>Note/Description</th>
+        <th>Userid</th>
+
+      <tr th:each="goaldata : ${showgoal}">
+        <td th:text="${goaldata.id}"></td>
+        <td th:text="${goaldata.title}"></td>
+        <td th:text="${goaldata.accounttype}"></td>
+        <td th:text="${goaldata.goaltype}"></td>
+        <td th:text="${goaldata.goalamount}"></td>
+        <td th:text="${goaldata.createddate}"></td>
+        <td th:text="${#dates.format(goaldata.duedate, 'MM-dd-yyyy')}"></td>
+   <td th:text="${goaldata.goalstatus}"></td>
+   <td th:text="${goaldata.goalreward}"></td>
+   <td th:text="${goaldata.goalnote}"></td>
+   <td th:text="${goaldata.userid}"></td> 
+
+    <td><a th:href="@{'/deletegoal/' + ${goaldata.id}}">Delete</a></td>
+    <td><a th:href="@{'/detailgoal/' + ${goaldata.id}}">Detail</a></td>
+
+
+   </tr>  
+   </table>  
+   <br/>
+   </form:form>
+</body>
+</html>

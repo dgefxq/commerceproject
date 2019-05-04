@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>TransactionDataDemo</title>
+
+        <link rel="stylesheet" href="assets/tether/tether.min.css">
+        <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-grid.min.css">
+        <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-reboot.min.css">
+        <link rel="stylesheet" href="assets/theme/css/style.css">
+        <link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">
+        
+        <style type="text/css">
+          html, body {
+            width: 100%;
+            height: 100%;
+            margin: 10px;
+          }
+      
+          
+          @keyframes gwd-gen-1we0gwdanimation_gwd-keyframes {
+              0% {
+                  opacity: 0;
+              transform: translate3d(-100px, 0px, 0px);
+              animation-timing-function: linear;
+            }
+          
+          }
+          .htmlNoPages .gwd-gen-1we0gwdanimation {
+            animation: gwd-gen-1we0gwdanimation_gwd-keyframes 1s linear 0s 1 normal forwards running;
+          }
+      
+   
+      
+      
+      
+      
+      
+        </style>
+      
+      <th:block th:include="/headermenu"></th:block>
+        
+</head>
+
+
+<body>
+
+    	
+    
+        <div style=" background-color: rgb(0, 0, 0);">
+     
+
+    
+
+          
+                
+            
+          
+                        <div class="row justify-content-md-center">
+                        
+                        <div class="htmlNoPages mbr-white col-md-9">
+                            
+    
+    <div>
+        <h3 class="gwd-gen-1we0gwdanimation mbr-section-title align-center mbr-bold pb-3 mbr-fonts-style display-2">Transaction List *Admin Tool</h3>
+  
+
+
+
+<form action="/addtransactionpage">
+    <div class="gwd-gen-1we0gwdanimation col-md-12 input-group-btn align-left"><button type="submit" value="Add" class="btn btn-primary btn-form display-4">Add New Transaction</button> 
+	
+
+</form>
+
+
+<form:form>
+<table border="2" width="100%" cellpadding="2">
+<tr><th>Id</th><th>Account Number</th><th>Account Type</th><th>Processing Date</th><th>Amount</th><th>CRDR</th><th>Balance</th><th>Description</th><th>Delete Transaction</th>
+
+<tr th:each="transactiondata : ${showtransaction}"> 
+   <td th:text="${transactiondata.id}"></td>  
+   <td th:text="${transactiondata.accountnumber}"></td> 
+   <td th:text="${transactiondata.accounttype}"></td> 
+   <td th:text="${transactiondata.processingdate}"></td>  
+   <td th:text="'$'+${transactiondata.amount}"></td>  
+   <td th:text="${transactiondata.crdr}"></td> 
+   <td th:text="${transactiondata.balance}"></td> 
+   <td th:text="${transactiondata.description}"></td> 
+
+
+
+    <td><a th:href="@{'/deletetransaction/' + ${transactiondata.id}}">Delete</a></td>
+
+
+
+   </tr>  
+   </table>  
+   <br/>
+   </form:form>
+</body>
+</html>
